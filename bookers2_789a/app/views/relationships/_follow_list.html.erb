@@ -1,0 +1,24 @@
+<% if friends.exists? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% friends.each do |friend| %>
+        <tr>
+          <td><%= image_tag friend.get_profile_image, size:"60x60" %></td>
+          <td><%= friend.name %></td>
+          <td>フォロー数：<%= friend.followings.count %></td>
+          <td>フォロワー数：<%= friend.followers.count %></td>
+          <td><%= link_to 'Show', friend %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
