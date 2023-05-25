@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @high_scores.each do |book| %>
             <tr>
               <td><%= link_to(book.user) do %>
                 <%= image_tag book.user.get_profile_image, size:'100x100' %><br>
