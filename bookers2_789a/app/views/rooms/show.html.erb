@@ -1,2 +1,21 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<% @entries.each do |e| %>
+  <% if current_user.id != e.user.id %>
+    <h2><%= e.user.name %>さんとのトークルーム</h2>
+  <% end %>
+<% end %>
+<%= link_to "ユーザー一覧に戻る", users_path %><br>
+
+<% if @messages != nil %>
+  <% @messages.each do |m| %>
+    <%= m.user.name %>
+    <%= m.message %><br>
+  <% end %>
+<% else %>
+  <p>まだメッセージはありません</p>
+<% end %>
+
+<%= form_with model: @message do |f| %>
+  <%= f.text_area :message, placeholder: "メッセージはここに" , size: 50, class:"form-text-field" %>
+  <%= f.hidden_field :room_id, value: @room.id %><br>
+  <%= f.submit "post", class:"btn btn-info" %>
+<% end %>

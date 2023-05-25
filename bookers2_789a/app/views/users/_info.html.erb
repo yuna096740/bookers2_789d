@@ -29,5 +29,20 @@
     <% else %>
       <%= link_to 'Follow', user_relationships_path(user.id),class:"btn btn-success ml-3", method: :post %>
     <% end %>
+
+    <% if (current_user.following? user) && (user.following? current_user) %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary">チャットへ</a></p>
+      <% else %>
+        <%= form_with model: @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, value: user.id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class:"btn btn-primary ml-2 user-show-chat" %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
+
+
 </div>
