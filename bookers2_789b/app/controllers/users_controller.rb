@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     @the_day_before = @today_book.count / @yesterday_book.count.to_f
     @the_week_before = @this_week_book.count / @last_week_book.count.to_f
   end
+  
+  
 
   def index
     @users = User.all
