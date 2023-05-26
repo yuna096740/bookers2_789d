@@ -6,6 +6,9 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @user = User.find(@book.user_id)
     @book_comment = BookComment.new
+    if @book.user_id != current_user.id
+      current_user.read_counts.create(book_id: @book.id)
+    end
   end
 
   def index
