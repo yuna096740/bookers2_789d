@@ -20,7 +20,7 @@
     </td>
   </tr>
 </table>
-<table class="table my-2">
+<table class="table">
   <tr>
     <th>今週の投稿数</th>
     <th></th>
@@ -54,12 +54,10 @@
     <th>今日</th>
   </tr>
   <tr>
-    <td><%= books.created_each_date(6).count  %></td>
-    <td><%= books.created_each_date(5).count  %></td>
-    <td><%= books.created_each_date(4).count  %></td>
-    <td><%= books.created_each_date(3).count  %></td>
-    <td><%= books.created_each_date(2).count  %></td>
-    <td><%= books.created_each_date(1).count  %></td>
+    <% for date in 1..6 do %><% date = 6 - 1 %>
+      <td><%= books.created_each_date(date).count %></td>
+    <% end %>
+
     <td><%= today_book.count  %></td>
   </tr>
 </table>
