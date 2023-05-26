@@ -21,7 +21,7 @@
           <% @books.each do |book| %>
             <tr>
               <td><%= link_to(book.user) do %>
-                <%= image_tag book.user.get_profile_image, size:'100x100' %><br>
+                <%= image_tag book.user.get_profile_image, size:'60x60' %><br>
                 <%= book.user.name %>
                 <% end %>
               </td>
@@ -35,6 +35,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render 'post_count', today_book: @today_book, yesterday_book: @yesterday_book, this_week_book: @this_week_book, last_week_book: @last_week_book %>
     </div>
   </div>
 </div>

@@ -1,0 +1,44 @@
+<table class="table my-2">
+  <tr>
+    <th>今日の投稿数</th>
+    <th></th>
+    <th>前日の投稿数</th>
+    <th></th>
+    <th>前日比</th>
+  </tr>
+  <tr>
+    <td><%= today_book.count %></td>
+    <td></td>
+    <td><%= yesterday_book.count %></td>
+    <td></td>
+    <td>
+      <% if @yesterday_book.count == 0 %>
+        前日の投稿はなし
+      <% else %>
+        <%= (@the_day_before * 100).round %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<table class="table my-2">
+  <tr>
+    <th>今週の投稿数</th>
+    <th></th>
+    <th>前週の投稿数</th>
+    <th></th>
+    <th>前週比</th>
+  </tr>
+  <tr>
+    <td><%= this_week_book.count %></td>
+    <td></td>
+    <td><%= last_week_book.count %></td>
+    <td></td>
+    <td>
+      <% if @last_week_book.count == 0 %>
+        前週の投稿はなし
+      <% else %>
+        <%= (@the_week_before * 100).round %>
+      <% end %>
+    </td>
+  </tr>
+</table>
