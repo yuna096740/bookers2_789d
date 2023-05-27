@@ -37,8 +37,12 @@ class UsersController < ApplicationController
 
   def search_count
     @user = User.find(params[:user_id])
-    @books = @user.books.where(created_at: params[:created_at].to_date.all_day)
-    render :search_count
+    if params[:created_at] == nil
+      @books == "日付を入力してください"
+    else
+      @books = @user.books.where(created_at: params[:created_at].to_date.all_day)
+      render :search_count
+    end
   end
 
 
