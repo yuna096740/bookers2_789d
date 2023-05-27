@@ -1,0 +1,14 @@
+<%= form_with url: user_search_count_path(user.id), method: :get do |f| %>
+  <%= f.date_field :created_at %>
+  <%= f.submit "検索", class:"btn btn-info" %>
+<% end %>
+
+<h4>検索結果</h4>
+  <table class="table table-bordered">
+    <tr>
+      <th>投稿数</th>
+    </tr>
+    <tr>
+      <td><%= search_book %></td>
+    </tr>
+  </table>

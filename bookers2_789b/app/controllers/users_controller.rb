@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     @the_day_before = @today_book.count / @yesterday_book.count.to_f
     @the_week_before = @this_week_book.count / @last_week_book.count.to_f
   end
-  
-  
+
+
 
   def index
     @users = User.all
@@ -34,6 +34,15 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
+  def search_count
+    @user = User.find(params[:user_id])
+    @books = @user.books
+    create_at = params[:created_at]
+    @search_book = @books.where(['created_at LIKE ? ', "#{create_at}%"]).count
+    redirect_to user_path(@user)
+  end
+
 
 
   private

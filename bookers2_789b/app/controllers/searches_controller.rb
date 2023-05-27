@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
       @books = Book.looks(params[:search],params[:word])
     end
     render "/layouts/search_result"
-
   end
+  
+  
 end

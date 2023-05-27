@@ -76,4 +76,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts.clear
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end
