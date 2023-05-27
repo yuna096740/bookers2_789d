@@ -15,7 +15,7 @@
       <% if yesterday_book.count == 0 %>
         前日の投稿はなし
       <% else %>
-        <%= (the_day_before * 100).round %>
+        <%= (the_day_before * 100).round %>%
       <% end %>
     </td>
   </tr>
@@ -37,7 +37,7 @@
       <% if last_week_book.count == 0 %>
         前週の投稿はなし
       <% else %>
-        <%= (the_week_before * 100).round %>
+        <%= (the_week_before * 100).round %>%
       <% end %>
     </td>
   </tr>
@@ -54,10 +54,9 @@
     <th>今日</th>
   </tr>
   <tr>
-    <% for date in 1..6 do %><% date = 6 - 1 %>
-      <td><%= books.created_each_date(date).count %></td>
+    <% books.book_week_count.each do |c| %>
+      <th><%= c %></th>
     <% end %>
-
-    <td><%= today_book.count  %></td>
+    <th><%= today_book.count %></th>
   </tr>
 </table>
