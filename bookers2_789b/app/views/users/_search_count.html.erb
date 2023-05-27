@@ -1,14 +1,12 @@
-<%= form_with url: user_search_count_path(user.id), method: :get do |f| %>
-  <%= f.date_field :created_at %>
-  <%= f.submit "検索", class:"btn btn-info" %>
-<% end %>
-
-<h4>検索結果</h4>
-  <table class="table table-bordered">
-    <tr>
-      <th>投稿数</th>
-    </tr>
-    <tr>
-      <td><%= search_book %></td>
-    </tr>
-  </table>
+<div class='col-md-5'>
+  <%= form_with url: user_search_count_path(user), method: :get, class: "row justify-content-center", local: false do |f| %>
+    <div class="col-auto">
+      <%= f.date_field :created_at, class: "form-control" %>
+    </div>
+    <div class="col-auto">
+      <%= f.submit "検索" , class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
+<div class="search_result">
+</div>
