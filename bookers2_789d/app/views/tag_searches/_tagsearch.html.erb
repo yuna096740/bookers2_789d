@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row m-2">
+      <div class="col-md-5 mx-auto">
+        <div class="search_form">
+          <%= form_with url: tag_searches_search_path, method: :get do |f| %>
+            <%= f.text_field :content %>
+            <%= f.submit 'タグ検索', class:"btn btn-info" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 # README
+### ポートフォリオ応用編 課題9d【レビューサービスの機能を学ぼう】 提出用 5/28
+### ポートフォリオ応用編 課題8d【レビューサービスの機能を学ぼう】 提出用 5/28
 ### ポートフォリオ応用編 課題7d【レビューサービスの機能を学ぼう】 提出用 5/28
 
 This README would normally document whatever steps are necessary to get the
