@@ -11,7 +11,7 @@
   		<table class='table'>
   		  <tr>
           <td><%= link_to(@book.user) do %>
-            <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
+            <%= image_tag @book.user.get_profile_image, size:"60x60" %><br>
             <%= @book.user.name %>
             <% end %>
           </td>
@@ -34,6 +34,7 @@
             <td><%= link_to 'Destroy',book_path(@book) , method: :delete,
                     data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
+          <td><%= render 'static_rate', book: @book %></td>
         </tr>
       </table>
       <div class="m-2">
